@@ -9,6 +9,16 @@
         "~/Desktop",
         "~/Downloads"
       ]
+    },
+    "calc": {
+      "command": "/Users/hiroma/.local/bin/uv",
+      "args": [
+        "run",
+        "--directory",
+        "/Users/hiroma/go/src/github.com/hiro8ma/mpc/fastmcp",
+        "python",
+        "calculator_server.py"
+      ]
     }
   }
 }
