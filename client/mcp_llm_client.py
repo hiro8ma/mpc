@@ -87,7 +87,7 @@ class LLMIntegrationPrep:
         for server_name, tools in tools_schema.items():
             for tool in tools:
                 params_desc = self._format_parameters(tool.get('parameters', {}))
-                tool_desc = f"{server_name}.{tool['name']}:\n  説明: {tool['description']}\n  {params_desc}"
+                tool_desc = f"サーバー: {server_name}, ツール名: {tool['name']}\n  説明: {tool['description']}\n  {params_desc}"
                 tools_description.append(tool_desc)
 
         return "\n\n".join(tools_description)
