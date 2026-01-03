@@ -6,7 +6,7 @@
       "Bash(git commit:*)",
       "Bash(git push:*)",
       "WebFetch(domain:github.com)",
-      "Bash(rm:*)"
+      "WebFetch(domain:raw.githubusercontent.com)"
     ],
     "deny": [],
     "ask": []
