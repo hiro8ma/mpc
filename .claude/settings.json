@@ -1,15 +1,5 @@
 {
   "mcpServers": {
-    "filesystem": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-filesystem",
-        "~/go/src/github.com/hiro8ma/mpc",
-        "~/Desktop",
-        "~/Downloads"
-      ]
-    },
     "calc": {
       "command": "/Users/hiroma/.local/bin/uv",
       "args": [
