@@ -85,4 +85,8 @@ def circle_area(radius: float) -> float:
     return math.pi * radius * radius
 
 if __name__ == "__main__":
-    mcp.run()
+    import sys
+    if "--http" in sys.argv:
+        mcp.run(transport="streamable-http", host="127.0.0.1", port=8000)
+    else:
+        mcp.run()
