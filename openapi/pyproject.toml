@@ -1,0 +1,13 @@
+[project]
+name = "openapi-mcp"
+version = "0.1.0"
+description = "OpenAPI MCP Server"
+readme = "README.md"
+authors = [{ name = "hiro8ma" }]
+requires-python = ">=3.13"
+dependencies = [
+    "fastmcp>=2.14.2",
+    "python-dotenv>=1.2.1",
+    "pyyaml>=6.0.3",
+    "requests>=2.32.5",
+]
