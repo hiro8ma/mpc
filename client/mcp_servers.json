@@ -5,7 +5,7 @@
       "args": [
         "run",
         "--directory",
-        "/Users/hiroma/go/src/github.com/hiro8ma/mpc/calc",
+        "/Users/hiroma/go/src/github.com/hiro8ma/mcp/calc",
         "python",
         "calculator_server.py"
       ]
@@ -15,7 +15,7 @@
       "args": [
         "run",
         "--directory",
-        "/Users/hiroma/go/src/github.com/hiro8ma/mpc/db_server",
+        "/Users/hiroma/go/src/github.com/hiro8ma/mcp/db_server",
         "python",
         "database_server.py"
       ]
@@ -25,7 +25,7 @@
       "args": [
         "run",
         "--directory",
-        "/Users/hiroma/go/src/github.com/hiro8ma/mpc/external_api",
+        "/Users/hiroma/go/src/github.com/hiro8ma/mcp/external_api",
         "python",
         "external_api_server.py"
       ]
@@ -35,7 +35,7 @@
       "args": [
         "run",
         "--directory",
-        "/Users/hiroma/go/src/github.com/hiro8ma/mpc/universal_tools",
+        "/Users/hiroma/go/src/github.com/hiro8ma/mcp/universal_tools",
         "python",
         "universal_tools_server.py"
       ]

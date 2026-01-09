@@ -39,6 +39,15 @@
         "python",
         "universal_tools_server.py"
       ]
+    },
+    "server": {
+      "command": "/Users/hiroma/.local/bin/uv",
+      "args": [
+        "run",
+        "--directory",
+        "/Users/hiroma/go/src/github.com/hiro8ma/mpc/openapi",
+        "openapi_server.py"
+      ]
     }
   }
 }

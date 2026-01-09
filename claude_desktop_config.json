@@ -5,7 +5,7 @@
       "args": [
         "-y",
         "@modelcontextprotocol/server-filesystem",
-        "~/go/src/github.com/hiro8ma/mpc",
+        "/Users/hiroma/go/src/github.com/hiro8ma/mpc",
         "~/Desktop",
         "~/Downloads"
       ]
@@ -48,6 +48,15 @@
         "/Users/hiroma/go/src/github.com/hiro8ma/mpc/universal_tools",
         "python",
         "universal_tools_server.py"
+      ]
+    },
+    "server": {
+      "command": "/Users/hiroma/.local/bin/uv",
+      "args": [
+        "run",
+        "--directory",
+        "/Users/hiroma/go/src/github.com/hiro8ma/mpc/openapi",
+        "openapi_server.py"
       ]
     }
   }

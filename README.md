@@ -1,4 +1,4 @@
-# mpc
+# mcp
 
 Personal repository for MCP (Model Context Protocol) implementations.
 
