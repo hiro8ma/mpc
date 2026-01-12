@@ -133,6 +133,107 @@ class LLMClient:
             "tool_calls": 0,
             "errors": 0
         }
+        self._init_commands()
+
+    def _init_commands(self):
+        """スラッシュコマンドを初期化"""
+        self.commands = {
+            "help": {
+                "handler": self._cmd_help,
+                "description": "コマンド一覧を表示"
+            },
+            "tools": {
+                "handler": self._cmd_tools,
+                "description": "利用可能なツール一覧"
+            },
+            "status": {
+                "handler": self._cmd_status,
+                "description": "セッション状態を表示"
+            },
+            "history": {
+                "handler": self._cmd_history,
+                "description": "会話履歴を表示"
+            },
+            "clear": {
+                "handler": self._cmd_clear,
+                "description": "会話履歴をクリア"
+            },
+            "quit": {
+                "handler": self._cmd_quit,
+                "description": "終了"
+            },
+        }
+
+    def _cmd_help(self, args: str) -> str:
+        """ヘルプを表示"""
+        lines = ["\n利用可能なコマンド:"]
+        for cmd, info in self.commands.items():
+            lines.append(f"  /{cmd:<10} - {info['description']}")
+        lines.append("\nそれ以外の入力は自然言語として処理されます。\n")
+        return "\n".join(lines)
+
+    def _cmd_tools(self, args: str) -> str:
+        """ツール一覧を表示"""
+        lines = ["\n利用可能なツール:"]
+        for server_name, tools in self.collector.tools_schema.items():
+            lines.append(f"\n  [{server_name}]")
+            for tool in tools:
+                desc = tool['description'][:40] + "..." if len(tool['description']) > 40 else tool['description']
+                lines.append(f"    - {tool['name']}: {desc}")
+        lines.append("")
+        return "\n".join(lines)
+
+    def _cmd_status(self, args: str) -> str:
+        """ステータスを表示"""
+        duration = datetime.now() - self.context["session_start"]
+        total_tools = sum(len(tools) for tools in self.collector.tools_schema.values())
+        lines = [
+            "\nセッション情報:",
+            f"  経過時間:       {str(duration).split('.')[0]}",
+            f"  ツール実行回数: {self.context['tool_calls']}",
+            f"  エラー回数:     {self.context['errors']}",
+            f"  会話履歴:       {len(self.conversation_history)}件",
+            f"  接続サーバー:   {len(self.clients)}個",
+            f"  利用可能ツール: {total_tools}個\n"
+        ]
+        return "\n".join(lines)
+
+    def _cmd_history(self, args: str) -> str:
+        """会話履歴を表示"""
+        if not self.conversation_history:
+            return "\n会話履歴はありません。\n"
+
+        lines = ["\n会話履歴:"]
+        for i, msg in enumerate(self.conversation_history, 1):
+            role = "あなた" if msg["role"] == "user" else "AI"
+            content = msg["content"][:50] + "..." if len(msg["content"]) > 50 else msg["content"]
+            lines.append(f"  {i}. [{role}] {content}")
+        lines.append("")
+        return "\n".join(lines)
+
+    def _cmd_clear(self, args: str) -> str:
+        """会話履歴をクリア"""
+        self.conversation_history = []
+        return "\n会話履歴をクリアしました。\n"
+
+    def _cmd_quit(self, args: str) -> str:
+        """終了フラグを返す"""
+        return "__QUIT__"
+
+    def _handle_command(self, input_text: str) -> tuple[bool, str]:
+        """コマンドを処理。(is_command, result)を返す"""
+        if not input_text.startswith("/"):
+            return False, ""
+
+        parts = input_text[1:].split(maxsplit=1)
+        cmd_name = parts[0].lower()
+        cmd_args = parts[1] if len(parts) > 1 else ""
+
+        if cmd_name in self.commands:
+            result = self.commands[cmd_name]["handler"](cmd_args)
+            return True, result
+        else:
+            return True, f"\n不明なコマンド: /{cmd_name}\n/help でコマンド一覧を確認してください。\n"
 
     async def initialize(self):
         print("[起動] LLM統合MCPクライアントを起動中...", flush=True)
@@ -278,7 +379,7 @@ needs_tool=falseの場合:
         print("LLM統合MCPクライアント - 対話モード")
         print("=" * 60)
         print("自然言語でMCPツールを操作できます。")
-        print("コマンド: help, status, quit")
+        print("/help でコマンド一覧を表示")
         print("=" * 60 + "\n")
 
         while True:
@@ -288,14 +389,13 @@ needs_tool=falseの場合:
                 if not user_input:
                     continue
 
-                if user_input.lower() in ['quit', 'exit', 'q']:
-                    print("\nお疲れさまでした！")
-                    break
-                elif user_input.lower() in ['help', '?']:
-                    self._show_available_tools()
-                    continue
-                elif user_input.lower() == 'status':
-                    self._show_status()
+                # スラッシュコマンドの処理
+                is_command, result = self._handle_command(user_input)
+                if is_command:
+                    if result == "__QUIT__":
+                        print("\nお疲れさまでした！")
+                        break
+                    print(result)
                     continue
 
                 print("\n処理中...")
@@ -305,13 +405,6 @@ needs_tool=falseの場合:
             except KeyboardInterrupt:
                 print("\n\n中断されました")
                 break
-
-    def _show_status(self):
-        duration = datetime.now() - self.context["session_start"]
-        print(f"\nセッション情報:")
-        print(f"  経過時間: {str(duration).split('.')[0]}")
-        print(f"  ツール実行回数: {self.context['tool_calls']}")
-        print(f"  エラー回数: {self.context['errors']}\n")
 
     async def cleanup(self):
         for client in self.clients.values():
