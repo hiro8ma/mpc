@@ -1,13 +1,10 @@
-.PHONY: run inspect http init
+.PHONY: run inspect http
 
 run:
-	uv run python database_server.py
+	uv run python recommend_server.py
 
 inspect:
-	npx @modelcontextprotocol/inspector uv run python database_server.py
+	npx @modelcontextprotocol/inspector uv run python recommend_server.py
 
 http:
-	uv run python database_server.py --http
-
-init:
-	uv run python database_server.py --init
+	uv run python recommend_server.py --http

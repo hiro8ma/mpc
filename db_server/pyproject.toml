@@ -1,10 +1,12 @@
 [project]
-name = "db-server"
+name = "recommend-server"
 version = "0.1.0"
-description = "Add your description here"
+description = "Recommendation MCP Server using cosine similarity"
 readme = "README.md"
 authors = [{ name = "hiro8ma" }]
 requires-python = ">=3.13"
 dependencies = [
     "fastmcp>=2.14.2",
+    "chromadb>=0.4.0",
+    "sentence-transformers>=2.2.0",
 ]
