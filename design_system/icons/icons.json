@@ -1,0 +1,98 @@
+[
+  {
+    "name": "IconPlus",
+    "category": "action",
+    "description": "追加・新規作成を示すプラスアイコン",
+    "keywords": ["add", "create", "new", "plus"],
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><line x1=\"12\" y1=\"5\" x2=\"12\" y2=\"19\"/><line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"/></svg>",
+    "usage": "import { IconPlus } from '@design-system/icons';\n\n<Button leftIcon={<IconPlus />}>追加</Button>"
+  },
+  {
+    "name": "IconMinus",
+    "category": "action",
+    "description": "削除・減少を示すマイナスアイコン",
+    "keywords": ["remove", "delete", "subtract", "minus"],
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"/></svg>",
+    "usage": "import { IconMinus } from '@design-system/icons';\n\n<IconMinus size={20} />"
+  },
+  {
+    "name": "IconCheck",
+    "category": "status",
+    "description": "完了・成功を示すチェックマークアイコン",
+    "keywords": ["done", "complete", "success", "check", "tick"],
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"20 6 9 17 4 12\"/></svg>",
+    "usage": "import { IconCheck } from '@design-system/icons';\n\n<Badge leftIcon={<IconCheck />}>完了</Badge>"
+  },
+  {
+    "name": "IconX",
+    "category": "action",
+    "description": "閉じる・キャンセルを示すXアイコン",
+    "keywords": ["close", "cancel", "remove", "x"],
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><line x1=\"18\" y1=\"6\" x2=\"6\" y2=\"18\"/><line x1=\"6\" y1=\"6\" x2=\"18\" y2=\"18\"/></svg>",
+    "usage": "import { IconX } from '@design-system/icons';\n\n<button onClick={onClose}><IconX /></button>"
+  },
+  {
+    "name": "IconSearch",
+    "category": "action",
+    "description": "検索を示す虫眼鏡アイコン",
+    "keywords": ["search", "find", "lookup", "magnifier"],
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><line x1=\"21\" y1=\"21\" x2=\"16.65\" y2=\"16.65\"/></svg>",
+    "usage": "import { IconSearch } from '@design-system/icons';\n\n<Input leftIcon={<IconSearch />} placeholder=\"検索...\" />"
+  },
+  {
+    "name": "IconChevronRight",
+    "category": "navigation",
+    "description": "右方向を示す矢印アイコン",
+    "keywords": ["arrow", "right", "next", "forward", "chevron"],
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"9 18 15 12 9 6\"/></svg>",
+    "usage": "import { IconChevronRight } from '@design-system/icons';\n\n<Button rightIcon={<IconChevronRight />}>次へ</Button>"
+  },
+  {
+    "name": "IconChevronLeft",
+    "category": "navigation",
+    "description": "左方向を示す矢印アイコン",
+    "keywords": ["arrow", "left", "back", "previous", "chevron"],
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"15 18 9 12 15 6\"/></svg>",
+    "usage": "import { IconChevronLeft } from '@design-system/icons';\n\n<Button leftIcon={<IconChevronLeft />}>戻る</Button>"
+  },
+  {
+    "name": "IconMenu",
+    "category": "navigation",
+    "description": "メニューを示すハンバーガーアイコン",
+    "keywords": ["menu", "hamburger", "navigation", "bars"],
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><line x1=\"3\" y1=\"12\" x2=\"21\" y2=\"12\"/><line x1=\"3\" y1=\"6\" x2=\"21\" y2=\"6\"/><line x1=\"3\" y1=\"18\" x2=\"21\" y2=\"18\"/></svg>",
+    "usage": "import { IconMenu } from '@design-system/icons';\n\n<button onClick={toggleMenu}><IconMenu /></button>"
+  },
+  {
+    "name": "IconUser",
+    "category": "display",
+    "description": "ユーザー・アカウントを示すアイコン",
+    "keywords": ["user", "account", "profile", "person"],
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2\"/><circle cx=\"12\" cy=\"7\" r=\"4\"/></svg>",
+    "usage": "import { IconUser } from '@design-system/icons';\n\n<Avatar icon={<IconUser />} />"
+  },
+  {
+    "name": "IconSettings",
+    "category": "action",
+    "description": "設定を示す歯車アイコン",
+    "keywords": ["settings", "config", "gear", "preferences"],
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z\"/></svg>",
+    "usage": "import { IconSettings } from '@design-system/icons';\n\n<IconButton icon={<IconSettings />} aria-label=\"設定\" />"
+  },
+  {
+    "name": "IconAlertCircle",
+    "category": "status",
+    "description": "警告・注意を示すアイコン",
+    "keywords": ["alert", "warning", "caution", "attention"],
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><line x1=\"12\" y1=\"8\" x2=\"12\" y2=\"12\"/><line x1=\"12\" y1=\"16\" x2=\"12.01\" y2=\"16\"/></svg>",
+    "usage": "import { IconAlertCircle } from '@design-system/icons';\n\n<Toast status=\"warning\" icon={<IconAlertCircle />} />"
+  },
+  {
+    "name": "IconInfo",
+    "category": "status",
+    "description": "情報を示すアイコン",
+    "keywords": ["info", "information", "help", "about"],
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><line x1=\"12\" y1=\"16\" x2=\"12\" y2=\"12\"/><line x1=\"12\" y1=\"8\" x2=\"12.01\" y2=\"8\"/></svg>",
+    "usage": "import { IconInfo } from '@design-system/icons';\n\n<Tooltip icon={<IconInfo />}>詳細情報</Tooltip>"
+  }
+]

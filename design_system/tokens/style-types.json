@@ -1,0 +1,34 @@
+{
+  "size": [
+    {"name": "xs", "description": "最小サイズ (24px)"},
+    {"name": "sm", "description": "小サイズ (32px)"},
+    {"name": "md", "description": "中サイズ - デフォルト (40px)"},
+    {"name": "lg", "description": "大サイズ (48px)"},
+    {"name": "xl", "description": "特大サイズ (56px)"}
+  ],
+  "variant": [
+    {"name": "primary", "description": "主要なアクション用。青色ベース"},
+    {"name": "secondary", "description": "副次的なアクション用。グレーベース"},
+    {"name": "outline", "description": "枠線のみ。背景透明"},
+    {"name": "ghost", "description": "枠線なし、背景透明。ホバーで背景表示"},
+    {"name": "danger", "description": "破壊的なアクション用。赤色ベース"}
+  ],
+  "status": [
+    {"name": "success", "description": "成功状態。緑色"},
+    {"name": "warning", "description": "警告状態。黄色"},
+    {"name": "error", "description": "エラー状態。赤色"},
+    {"name": "info", "description": "情報状態。青色"}
+  ],
+  "position": [
+    {"name": "top", "description": "上部に配置"},
+    {"name": "bottom", "description": "下部に配置"},
+    {"name": "left", "description": "左側に配置"},
+    {"name": "right", "description": "右側に配置"}
+  ],
+  "alignment": [
+    {"name": "start", "description": "開始位置に揃える"},
+    {"name": "center", "description": "中央に揃える"},
+    {"name": "end", "description": "終了位置に揃える"},
+    {"name": "stretch", "description": "伸縮して埋める"}
+  ]
+}

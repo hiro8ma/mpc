@@ -58,6 +58,16 @@
         "/Users/hiroma/go/src/github.com/hiro8ma/mpc/openapi",
         "openapi_server.py"
       ]
+    },
+    "design-system": {
+      "command": "/Users/hiroma/.local/bin/uv",
+      "args": [
+        "run",
+        "--directory",
+        "/Users/hiroma/go/src/github.com/hiro8ma/mpc/design_system",
+        "python",
+        "server.py"
+      ]
     }
   }
 }

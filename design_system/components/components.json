@@ -1,0 +1,124 @@
+[
+  {
+    "name": "Button",
+    "category": "form",
+    "description": "クリック可能なボタンコンポーネント。様々なバリアントとサイズをサポート",
+    "props": [
+      {"name": "variant", "type": "'primary' | 'secondary' | 'outline' | 'ghost' | 'danger'", "required": false, "description": "ボタンの見た目。デフォルトは 'primary'"},
+      {"name": "size", "type": "'xs' | 'sm' | 'md' | 'lg' | 'xl'", "required": false, "description": "ボタンのサイズ。デフォルトは 'md'"},
+      {"name": "disabled", "type": "boolean", "required": false, "description": "無効状態にする"},
+      {"name": "loading", "type": "boolean", "required": false, "description": "ローディング状態を表示"},
+      {"name": "leftIcon", "type": "ReactNode", "required": false, "description": "左側に表示するアイコン"},
+      {"name": "rightIcon", "type": "ReactNode", "required": false, "description": "右側に表示するアイコン"},
+      {"name": "onClick", "type": "() => void", "required": false, "description": "クリック時のコールバック"}
+    ],
+    "example": "<Button variant=\"primary\" size=\"md\">\n  送信する\n</Button>\n\n<Button variant=\"outline\" leftIcon={<IconPlus />}>\n  追加\n</Button>"
+  },
+  {
+    "name": "Input",
+    "category": "form",
+    "description": "テキスト入力フィールド。バリデーションやエラー表示をサポート",
+    "props": [
+      {"name": "type", "type": "'text' | 'email' | 'password' | 'number' | 'tel'", "required": false, "description": "入力タイプ。デフォルトは 'text'"},
+      {"name": "size", "type": "'sm' | 'md' | 'lg'", "required": false, "description": "入力フィールドのサイズ"},
+      {"name": "placeholder", "type": "string", "required": false, "description": "プレースホルダーテキスト"},
+      {"name": "error", "type": "string", "required": false, "description": "エラーメッセージ。指定するとエラー状態になる"},
+      {"name": "disabled", "type": "boolean", "required": false, "description": "無効状態にする"},
+      {"name": "value", "type": "string", "required": false, "description": "入力値"},
+      {"name": "onChange", "type": "(value: string) => void", "required": false, "description": "値変更時のコールバック"}
+    ],
+    "example": "<Input\n  placeholder=\"メールアドレス\"\n  type=\"email\"\n  error={errors.email}\n/>"
+  },
+  {
+    "name": "Select",
+    "category": "form",
+    "description": "ドロップダウン選択コンポーネント",
+    "props": [
+      {"name": "options", "type": "{ value: string; label: string }[]", "required": true, "description": "選択肢の配列"},
+      {"name": "value", "type": "string", "required": false, "description": "選択された値"},
+      {"name": "placeholder", "type": "string", "required": false, "description": "プレースホルダーテキスト"},
+      {"name": "disabled", "type": "boolean", "required": false, "description": "無効状態にする"},
+      {"name": "onChange", "type": "(value: string) => void", "required": false, "description": "選択変更時のコールバック"}
+    ],
+    "example": "<Select\n  options={[\n    { value: 'jp', label: '日本' },\n    { value: 'us', label: 'アメリカ' },\n  ]}\n  placeholder=\"国を選択\"\n/>"
+  },
+  {
+    "name": "Card",
+    "category": "layout",
+    "description": "コンテンツをグループ化するカードコンポーネント",
+    "props": [
+      {"name": "padding", "type": "'none' | 'sm' | 'md' | 'lg'", "required": false, "description": "内側の余白。デフォルトは 'md'"},
+      {"name": "shadow", "type": "'none' | 'sm' | 'md' | 'lg'", "required": false, "description": "影の強さ。デフォルトは 'sm'"},
+      {"name": "radius", "type": "'none' | 'sm' | 'md' | 'lg'", "required": false, "description": "角丸。デフォルトは 'md'"}
+    ],
+    "example": "<Card padding=\"lg\" shadow=\"md\">\n  <h2>タイトル</h2>\n  <p>カードの内容</p>\n</Card>"
+  },
+  {
+    "name": "Stack",
+    "category": "layout",
+    "description": "子要素を垂直または水平に並べるレイアウトコンポーネント",
+    "props": [
+      {"name": "direction", "type": "'horizontal' | 'vertical'", "required": false, "description": "並べる方向。デフォルトは 'vertical'"},
+      {"name": "gap", "type": "number | string", "required": false, "description": "要素間のスペース。デフォルトは 4"},
+      {"name": "align", "type": "'start' | 'center' | 'end' | 'stretch'", "required": false, "description": "交差軸の揃え方"},
+      {"name": "justify", "type": "'start' | 'center' | 'end' | 'between' | 'around'", "required": false, "description": "主軸の揃え方"}
+    ],
+    "example": "<Stack direction=\"horizontal\" gap={4} align=\"center\">\n  <Avatar />\n  <Text>ユーザー名</Text>\n</Stack>"
+  },
+  {
+    "name": "Modal",
+    "category": "feedback",
+    "description": "モーダルダイアログ。オーバーレイ付きのポップアップ",
+    "props": [
+      {"name": "isOpen", "type": "boolean", "required": true, "description": "モーダルの表示状態"},
+      {"name": "onClose", "type": "() => void", "required": true, "description": "閉じるときのコールバック"},
+      {"name": "title", "type": "string", "required": false, "description": "モーダルのタイトル"},
+      {"name": "size", "type": "'sm' | 'md' | 'lg' | 'xl' | 'full'", "required": false, "description": "モーダルのサイズ"}
+    ],
+    "example": "<Modal\n  isOpen={isOpen}\n  onClose={() => setIsOpen(false)}\n  title=\"確認\"\n>\n  <p>本当に削除しますか？</p>\n  <Button onClick={handleDelete}>削除</Button>\n</Modal>"
+  },
+  {
+    "name": "Toast",
+    "category": "feedback",
+    "description": "一時的な通知メッセージを表示するコンポーネント",
+    "props": [
+      {"name": "message", "type": "string", "required": true, "description": "表示するメッセージ"},
+      {"name": "status", "type": "'success' | 'warning' | 'error' | 'info'", "required": false, "description": "トーストの状態。デフォルトは 'info'"},
+      {"name": "duration", "type": "number", "required": false, "description": "表示時間（ミリ秒）。デフォルトは 3000"},
+      {"name": "position", "type": "'top' | 'bottom' | 'top-right' | 'bottom-right'", "required": false, "description": "表示位置"}
+    ],
+    "example": "// useToast フックを使用\nconst toast = useToast();\n\ntoast({\n  message: '保存しました',\n  status: 'success',\n});"
+  },
+  {
+    "name": "Avatar",
+    "category": "display",
+    "description": "ユーザーのアバター画像を表示するコンポーネント",
+    "props": [
+      {"name": "src", "type": "string", "required": false, "description": "画像のURL"},
+      {"name": "name", "type": "string", "required": false, "description": "ユーザー名（画像がない場合にイニシャルを表示）"},
+      {"name": "size", "type": "'xs' | 'sm' | 'md' | 'lg' | 'xl'", "required": false, "description": "アバターのサイズ"}
+    ],
+    "example": "<Avatar\n  src=\"/user.jpg\"\n  name=\"田中太郎\"\n  size=\"md\"\n/>"
+  },
+  {
+    "name": "Badge",
+    "category": "display",
+    "description": "ステータスやラベルを表示するバッジコンポーネント",
+    "props": [
+      {"name": "variant", "type": "'solid' | 'outline' | 'subtle'", "required": false, "description": "バッジの見た目"},
+      {"name": "colorScheme", "type": "'gray' | 'blue' | 'green' | 'red' | 'yellow'", "required": false, "description": "色のスキーム"},
+      {"name": "size", "type": "'sm' | 'md' | 'lg'", "required": false, "description": "バッジのサイズ"}
+    ],
+    "example": "<Badge colorScheme=\"green\" variant=\"subtle\">\n  完了\n</Badge>"
+  },
+  {
+    "name": "Spinner",
+    "category": "feedback",
+    "description": "ローディング状態を示すスピナーコンポーネント",
+    "props": [
+      {"name": "size", "type": "'xs' | 'sm' | 'md' | 'lg' | 'xl'", "required": false, "description": "スピナーのサイズ"},
+      {"name": "color", "type": "string", "required": false, "description": "スピナーの色"}
+    ],
+    "example": "<Spinner size=\"md\" />\n\n// ローディング状態の例\n{isLoading ? <Spinner /> : <Content />}"
+  }
+]
