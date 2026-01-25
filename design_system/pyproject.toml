@@ -2,15 +2,7 @@
 name = "design-system-mcp"
 version = "0.1.0"
 description = "Design System MCP Server - デザインシステムの情報をAIに提供"
-readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     "mcp[cli]>=1.0.0",
 ]
-
-[project.scripts]
-design-system-mcp = "server:mcp.run"
-
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
