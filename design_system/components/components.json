@@ -1,124 +1,383 @@
 [
   {
+    "name": "Accordion",
+    "category": "disclosure",
+    "description": "折りたたみ可能なコンテンツ領域。詳細情報を展開/折りたたみできる",
+    "props": [
+      {"name": "header", "type": "ReactNode", "required": true, "description": "常に表示されるヘッダー部分"},
+      {"name": "defaultOpen", "type": "boolean", "required": false, "description": "初期状態で開いているかどうか"},
+      {"name": "onChange", "type": "(isOpen: boolean) => void", "required": false, "description": "開閉状態が変わったときのコールバック"}
+    ],
+    "example": "<Accordion header=\"詳細を見る\">\n  <p>折りたたまれたコンテンツ</p>\n</Accordion>"
+  },
+  {
+    "name": "ActionHalfModal",
+    "category": "overlay",
+    "description": "画面下半分に表示されるアクション用モーダル。モバイルでのボタン選択に最適",
+    "props": [
+      {"name": "open", "type": "boolean", "required": true, "description": "モーダルの表示状態"},
+      {"name": "onClose", "type": "() => void", "required": true, "description": "閉じるときのコールバック"},
+      {"name": "header", "type": "string", "required": false, "description": "モーダルのヘッダーテキスト"},
+      {"name": "primaryAction", "type": "{ label: string; onClick: () => void }", "required": false, "description": "主要アクションボタン"},
+      {"name": "secondaryAction", "type": "{ label: string; onClick: () => void }", "required": false, "description": "副次アクションボタン"}
+    ],
+    "example": "<ActionHalfModal\n  open={isOpen}\n  onClose={() => setIsOpen(false)}\n  header=\"操作を選択\"\n  primaryAction={{ label: '確定', onClick: handleConfirm }}\n  secondaryAction={{ label: 'キャンセル', onClick: handleCancel }}\n/>"
+  },
+  {
+    "name": "ActionModal",
+    "category": "overlay",
+    "description": "アクション確認用のフルサイズモーダル。重要な操作の確認に使用",
+    "props": [
+      {"name": "open", "type": "boolean", "required": true, "description": "モーダルの表示状態"},
+      {"name": "onClose", "type": "() => void", "required": true, "description": "閉じるときのコールバック"},
+      {"name": "header", "type": "string", "required": true, "description": "モーダルのヘッダーテキスト"},
+      {"name": "primaryAction", "type": "{ label: string; onClick: () => void }", "required": true, "description": "主要アクションボタン"},
+      {"name": "secondaryAction", "type": "{ label: string; onClick: () => void }", "required": false, "description": "副次アクションボタン"}
+    ],
+    "example": "<ActionModal\n  open={isOpen}\n  onClose={() => setIsOpen(false)}\n  header=\"本当に削除しますか？\"\n  primaryAction={{ label: '削除', onClick: handleDelete }}\n  secondaryAction={{ label: 'キャンセル', onClick: () => setIsOpen(false) }}\n/>"
+  },
+  {
+    "name": "Bold",
+    "category": "typography",
+    "description": "テキストを太字で表示する。強調したいテキストに使用",
+    "props": [
+      {"name": "as", "type": "'span' | 'strong' | 'b'", "required": false, "description": "レンダリングするHTML要素。デフォルトは 'strong'"}
+    ],
+    "example": "<Text>\n  この文章の<Bold>重要な部分</Bold>を強調します。\n</Text>"
+  },
+  {
+    "name": "Box",
+    "category": "layout",
+    "description": "汎用的なコンテナコンポーネント。スタイリングの基盤となる",
+    "props": [
+      {"name": "as", "type": "ElementType", "required": false, "description": "レンダリングするHTML要素"},
+      {"name": "pt", "type": "Spacing", "required": false, "description": "padding-top"},
+      {"name": "pb", "type": "Spacing", "required": false, "description": "padding-bottom"},
+      {"name": "pl", "type": "Spacing", "required": false, "description": "padding-left"},
+      {"name": "pr", "type": "Spacing", "required": false, "description": "padding-right"},
+      {"name": "px", "type": "Spacing", "required": false, "description": "padding-left & padding-right"},
+      {"name": "py", "type": "Spacing", "required": false, "description": "padding-top & padding-bottom"},
+      {"name": "p", "type": "Spacing", "required": false, "description": "全方向のpadding"},
+      {"name": "mt", "type": "Spacing", "required": false, "description": "margin-top"},
+      {"name": "mb", "type": "Spacing", "required": false, "description": "margin-bottom"},
+      {"name": "ml", "type": "Spacing", "required": false, "description": "margin-left"},
+      {"name": "mr", "type": "Spacing", "required": false, "description": "margin-right"},
+      {"name": "mx", "type": "Spacing", "required": false, "description": "margin-left & margin-right"},
+      {"name": "my", "type": "Spacing", "required": false, "description": "margin-top & margin-bottom"},
+      {"name": "m", "type": "Spacing", "required": false, "description": "全方向のmargin"},
+      {"name": "radius", "type": "Radius", "required": false, "description": "角丸"},
+      {"name": "backgroundColor", "type": "BackgroundColor", "required": false, "description": "背景色"}
+    ],
+    "example": "<Box p=\"md\" backgroundColor=\"primary\" radius=\"md\">\n  <Text>コンテンツ</Text>\n</Box>"
+  },
+  {
     "name": "Button",
     "category": "form",
     "description": "クリック可能なボタンコンポーネント。様々なバリアントとサイズをサポート",
     "props": [
-      {"name": "variant", "type": "'primary' | 'secondary' | 'outline' | 'ghost' | 'danger'", "required": false, "description": "ボタンの見た目。デフォルトは 'primary'"},
-      {"name": "size", "type": "'xs' | 'sm' | 'md' | 'lg' | 'xl'", "required": false, "description": "ボタンのサイズ。デフォルトは 'md'"},
+      {"name": "variant", "type": "'primary' | 'secondary' | 'accent' | 'text' | 'textAlert' | 'alert'", "required": false, "description": "ボタンの見た目。デフォルトは 'primary'"},
+      {"name": "size", "type": "'lg' | 'md' | 'sm'", "required": false, "description": "ボタンのサイズ。デフォルトは 'lg'"},
+      {"name": "block", "type": "boolean", "required": false, "description": "幅100%で表示"},
       {"name": "disabled", "type": "boolean", "required": false, "description": "無効状態にする"},
       {"name": "loading", "type": "boolean", "required": false, "description": "ローディング状態を表示"},
-      {"name": "leftIcon", "type": "ReactNode", "required": false, "description": "左側に表示するアイコン"},
-      {"name": "rightIcon", "type": "ReactNode", "required": false, "description": "右側に表示するアイコン"},
+      {"name": "suffixIcon", "type": "ReactNode", "required": false, "description": "テキストの後ろに表示するアイコン"},
+      {"name": "icon", "type": "ReactNode", "required": false, "description": "アイコンのみのボタンの場合に使用"},
       {"name": "onClick", "type": "() => void", "required": false, "description": "クリック時のコールバック"}
     ],
-    "example": "<Button variant=\"primary\" size=\"md\">\n  送信する\n</Button>\n\n<Button variant=\"outline\" leftIcon={<IconPlus />}>\n  追加\n</Button>"
+    "example": "<Button variant=\"primary\" size=\"lg\">\n  送信する\n</Button>\n\n<Button variant=\"secondary\" suffixIcon={<ArrowBRightIcon />}>\n  次へ\n</Button>"
+  },
+  {
+    "name": "ButtonCard",
+    "category": "form",
+    "description": "カード形式のボタン。選択肢を大きく表示したい場合に使用",
+    "props": [
+      {"name": "selected", "type": "boolean", "required": false, "description": "選択状態"},
+      {"name": "disabled", "type": "boolean", "required": false, "description": "無効状態"},
+      {"name": "onClick", "type": "() => void", "required": true, "description": "クリック時のコールバック"}
+    ],
+    "example": "<ButtonCard onClick={handleSelect} selected={isSelected}>\n  <Text>選択肢1</Text>\n</ButtonCard>"
+  },
+  {
+    "name": "Center",
+    "category": "layout",
+    "description": "子要素を中央揃えにするレイアウトコンポーネント",
+    "props": [
+      {"name": "as", "type": "ElementType", "required": false, "description": "レンダリングするHTML要素"}
+    ],
+    "example": "<Center>\n  <Spinner />\n</Center>"
+  },
+  {
+    "name": "Checkbox",
+    "category": "form",
+    "description": "チェックボックス入力。複数選択に使用",
+    "props": [
+      {"name": "checked", "type": "boolean", "required": false, "description": "チェック状態"},
+      {"name": "disabled", "type": "boolean", "required": false, "description": "無効状態"},
+      {"name": "name", "type": "string", "required": false, "description": "フォーム用のname属性"},
+      {"name": "value", "type": "string", "required": false, "description": "フォーム用のvalue属性"},
+      {"name": "onChange", "type": "(e: ChangeEvent) => void", "required": false, "description": "変更時のコールバック"}
+    ],
+    "example": "<Checkbox\n  checked={isChecked}\n  onChange={(e) => setIsChecked(e.target.checked)}\n>\n  利用規約に同意する\n</Checkbox>"
+  },
+  {
+    "name": "CheckboxCard",
+    "category": "form",
+    "description": "カード形式のチェックボックス。視認性の高い複数選択UI",
+    "props": [
+      {"name": "checked", "type": "boolean", "required": false, "description": "チェック状態"},
+      {"name": "disabled", "type": "boolean", "required": false, "description": "無効状態"},
+      {"name": "onChange", "type": "(e: ChangeEvent) => void", "required": false, "description": "変更時のコールバック"}
+    ],
+    "example": "<CheckboxCard checked={isChecked} onChange={handleChange}>\n  <Text>オプション1</Text>\n  <HelperMessage>詳細説明</HelperMessage>\n</CheckboxCard>"
+  },
+  {
+    "name": "CheckboxGroup",
+    "category": "form",
+    "description": "複数のチェックボックスをグループ化",
+    "props": [
+      {"name": "value", "type": "string[]", "required": false, "description": "選択された値の配列"},
+      {"name": "onChange", "type": "(values: string[]) => void", "required": false, "description": "選択変更時のコールバック"}
+    ],
+    "example": "<CheckboxGroup value={selected} onChange={setSelected}>\n  <Checkbox value=\"a\">オプションA</Checkbox>\n  <Checkbox value=\"b\">オプションB</Checkbox>\n</CheckboxGroup>"
+  },
+  {
+    "name": "Divider",
+    "category": "layout",
+    "description": "コンテンツを区切る水平線",
+    "props": [
+      {"name": "border", "type": "'default' | 'bold'", "required": false, "description": "線の太さ"}
+    ],
+    "example": "<Stack>\n  <Text>セクション1</Text>\n  <Divider />\n  <Text>セクション2</Text>\n</Stack>"
+  },
+  {
+    "name": "ErrorMessage",
+    "category": "form",
+    "description": "フォームのエラーメッセージを表示",
+    "props": [
+      {"name": "children", "type": "ReactNode", "required": true, "description": "エラーメッセージのテキスト"}
+    ],
+    "example": "<Input error={!!errors.email} />\n{errors.email && <ErrorMessage>{errors.email}</ErrorMessage>}"
+  },
+  {
+    "name": "Flex",
+    "category": "layout",
+    "description": "Flexboxレイアウトコンポーネント",
+    "props": [
+      {"name": "direction", "type": "'row' | 'column'", "required": false, "description": "flex-direction"},
+      {"name": "alignItems", "type": "AlignItems", "required": false, "description": "align-items"},
+      {"name": "justifyContent", "type": "JustifyContent", "required": false, "description": "justify-content"},
+      {"name": "wrap", "type": "boolean", "required": false, "description": "flex-wrap: wrap"},
+      {"name": "gap", "type": "Spacing", "required": false, "description": "要素間のギャップ"}
+    ],
+    "example": "<Flex direction=\"row\" alignItems=\"center\" gap=\"md\">\n  <Icon />\n  <Text>テキスト</Text>\n</Flex>"
+  },
+  {
+    "name": "FlexItem",
+    "category": "layout",
+    "description": "Flex内の子要素。flex-grow/shrinkを制御",
+    "props": [
+      {"name": "grow", "type": "number", "required": false, "description": "flex-grow"},
+      {"name": "shrink", "type": "number", "required": false, "description": "flex-shrink"},
+      {"name": "basis", "type": "string", "required": false, "description": "flex-basis"}
+    ],
+    "example": "<Flex>\n  <FlexItem grow={1}>\n    <Input />\n  </FlexItem>\n  <Button>検索</Button>\n</Flex>"
+  },
+  {
+    "name": "Heading",
+    "category": "typography",
+    "description": "見出しテキスト。h1-h6に対応",
+    "props": [
+      {"name": "as", "type": "'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'", "required": false, "description": "HTMLの見出しレベル。デフォルトは 'h2'"},
+      {"name": "size", "type": "'xs' | 'sm' | 'md' | 'lg' | 'xl'", "required": false, "description": "見出しのサイズ"},
+      {"name": "color", "type": "TextColor", "required": false, "description": "テキストカラー"}
+    ],
+    "example": "<Heading as=\"h1\" size=\"xl\">\n  ページタイトル\n</Heading>"
+  },
+  {
+    "name": "HelperMessage",
+    "category": "form",
+    "description": "フォームの補足説明テキスト",
+    "props": [
+      {"name": "children", "type": "ReactNode", "required": true, "description": "補足メッセージのテキスト"}
+    ],
+    "example": "<Label>パスワード</Label>\n<Input type=\"password\" />\n<HelperMessage>8文字以上で入力してください</HelperMessage>"
+  },
+  {
+    "name": "Icon",
+    "category": "display",
+    "description": "アイコンを表示するラッパーコンポーネント",
+    "props": [
+      {"name": "icon", "type": "ReactNode", "required": true, "description": "アイコンコンポーネント"},
+      {"name": "size", "type": "'xs' | 'sm' | 'md' | 'lg' | 'xl'", "required": false, "description": "アイコンのサイズ"},
+      {"name": "color", "type": "IconColor", "required": false, "description": "アイコンの色"}
+    ],
+    "example": "<Icon icon={<CheckAIcon />} size=\"md\" color=\"primary\" />"
   },
   {
     "name": "Input",
     "category": "form",
-    "description": "テキスト入力フィールド。バリデーションやエラー表示をサポート",
+    "description": "テキスト入力フィールド",
     "props": [
-      {"name": "type", "type": "'text' | 'email' | 'password' | 'number' | 'tel'", "required": false, "description": "入力タイプ。デフォルトは 'text'"},
-      {"name": "size", "type": "'sm' | 'md' | 'lg'", "required": false, "description": "入力フィールドのサイズ"},
-      {"name": "placeholder", "type": "string", "required": false, "description": "プレースホルダーテキスト"},
-      {"name": "error", "type": "string", "required": false, "description": "エラーメッセージ。指定するとエラー状態になる"},
-      {"name": "disabled", "type": "boolean", "required": false, "description": "無効状態にする"},
+      {"name": "type", "type": "'text' | 'email' | 'password' | 'number' | 'tel' | 'url'", "required": false, "description": "入力タイプ"},
+      {"name": "size", "type": "'lg' | 'md' | 'sm'", "required": false, "description": "入力フィールドのサイズ"},
+      {"name": "placeholder", "type": "string", "required": false, "description": "プレースホルダー"},
+      {"name": "error", "type": "boolean", "required": false, "description": "エラー状態"},
+      {"name": "disabled", "type": "boolean", "required": false, "description": "無効状態"},
       {"name": "value", "type": "string", "required": false, "description": "入力値"},
-      {"name": "onChange", "type": "(value: string) => void", "required": false, "description": "値変更時のコールバック"}
+      {"name": "onChange", "type": "(e: ChangeEvent) => void", "required": false, "description": "変更時のコールバック"}
     ],
-    "example": "<Input\n  placeholder=\"メールアドレス\"\n  type=\"email\"\n  error={errors.email}\n/>"
+    "example": "<Label>メールアドレス</Label>\n<Input\n  type=\"email\"\n  placeholder=\"example@email.com\"\n  error={!!errors.email}\n/>"
+  },
+  {
+    "name": "Label",
+    "category": "form",
+    "description": "フォーム入力のラベル",
+    "props": [
+      {"name": "htmlFor", "type": "string", "required": false, "description": "関連するinputのid"},
+      {"name": "required", "type": "boolean", "required": false, "description": "必須マークを表示"}
+    ],
+    "example": "<Label htmlFor=\"email\" required>\n  メールアドレス\n</Label>\n<Input id=\"email\" />"
+  },
+  {
+    "name": "LinkCard",
+    "category": "navigation",
+    "description": "リンク機能を持つカードコンポーネント",
+    "props": [
+      {"name": "href", "type": "string", "required": true, "description": "リンク先URL"},
+      {"name": "target", "type": "'_blank' | '_self'", "required": false, "description": "リンクの開き方"}
+    ],
+    "example": "<LinkCard href=\"/detail/1\">\n  <Heading size=\"sm\">記事タイトル</Heading>\n  <Text>記事の概要...</Text>\n</LinkCard>"
+  },
+  {
+    "name": "MessageHalfModal",
+    "category": "overlay",
+    "description": "画面下半分に表示されるメッセージモーダル",
+    "props": [
+      {"name": "open", "type": "boolean", "required": true, "description": "モーダルの表示状態"},
+      {"name": "onClose", "type": "() => void", "required": true, "description": "閉じるときのコールバック"},
+      {"name": "header", "type": "string", "required": false, "description": "ヘッダーテキスト"}
+    ],
+    "example": "<MessageHalfModal\n  open={isOpen}\n  onClose={() => setIsOpen(false)}\n  header=\"お知らせ\"\n>\n  <Text>メッセージ内容</Text>\n</MessageHalfModal>"
+  },
+  {
+    "name": "MessageModal",
+    "category": "overlay",
+    "description": "メッセージ表示用のフルサイズモーダル",
+    "props": [
+      {"name": "open", "type": "boolean", "required": true, "description": "モーダルの表示状態"},
+      {"name": "onClose", "type": "() => void", "required": true, "description": "閉じるときのコールバック"},
+      {"name": "header", "type": "string", "required": true, "description": "ヘッダーテキスト"},
+      {"name": "overlayOpacity", "type": "'normal' | 'darker'", "required": false, "description": "オーバーレイの透明度"}
+    ],
+    "example": "<MessageModal\n  open={isOpen}\n  onClose={() => setIsOpen(false)}\n  header=\"重要なお知らせ\"\n>\n  <Text>詳細メッセージ</Text>\n</MessageModal>"
+  },
+  {
+    "name": "RadioButton",
+    "category": "form",
+    "description": "ラジオボタン入力。単一選択に使用",
+    "props": [
+      {"name": "checked", "type": "boolean", "required": false, "description": "選択状態"},
+      {"name": "disabled", "type": "boolean", "required": false, "description": "無効状態"},
+      {"name": "name", "type": "string", "required": true, "description": "グループ名"},
+      {"name": "value", "type": "string", "required": true, "description": "値"},
+      {"name": "onChange", "type": "(e: ChangeEvent) => void", "required": false, "description": "変更時のコールバック"}
+    ],
+    "example": "<RadioButton name=\"gender\" value=\"male\">\n  男性\n</RadioButton>\n<RadioButton name=\"gender\" value=\"female\">\n  女性\n</RadioButton>"
+  },
+  {
+    "name": "RadioCard",
+    "category": "form",
+    "description": "カード形式のラジオボタン",
+    "props": [
+      {"name": "checked", "type": "boolean", "required": false, "description": "選択状態"},
+      {"name": "disabled", "type": "boolean", "required": false, "description": "無効状態"},
+      {"name": "name", "type": "string", "required": true, "description": "グループ名"},
+      {"name": "value", "type": "string", "required": true, "description": "値"},
+      {"name": "onChange", "type": "(e: ChangeEvent) => void", "required": false, "description": "変更時のコールバック"}
+    ],
+    "example": "<RadioCard name=\"plan\" value=\"basic\">\n  <Heading size=\"sm\">ベーシック</Heading>\n  <Text>月額1,000円</Text>\n</RadioCard>"
+  },
+  {
+    "name": "RadioGroup",
+    "category": "form",
+    "description": "複数のラジオボタンをグループ化",
+    "props": [
+      {"name": "value", "type": "string", "required": false, "description": "選択された値"},
+      {"name": "onChange", "type": "(value: string) => void", "required": false, "description": "選択変更時のコールバック"}
+    ],
+    "example": "<RadioGroup value={selected} onChange={setSelected}>\n  <RadioButton value=\"a\">オプションA</RadioButton>\n  <RadioButton value=\"b\">オプションB</RadioButton>\n</RadioGroup>"
   },
   {
     "name": "Select",
     "category": "form",
-    "description": "ドロップダウン選択コンポーネント",
+    "description": "ドロップダウン選択",
     "props": [
-      {"name": "options", "type": "{ value: string; label: string }[]", "required": true, "description": "選択肢の配列"},
+      {"name": "options", "type": "{ value: string; label: string }[]", "required": true, "description": "選択肢"},
       {"name": "value", "type": "string", "required": false, "description": "選択された値"},
-      {"name": "placeholder", "type": "string", "required": false, "description": "プレースホルダーテキスト"},
-      {"name": "disabled", "type": "boolean", "required": false, "description": "無効状態にする"},
-      {"name": "onChange", "type": "(value: string) => void", "required": false, "description": "選択変更時のコールバック"}
+      {"name": "placeholder", "type": "string", "required": false, "description": "プレースホルダー"},
+      {"name": "disabled", "type": "boolean", "required": false, "description": "無効状態"},
+      {"name": "error", "type": "boolean", "required": false, "description": "エラー状態"},
+      {"name": "onChange", "type": "(e: ChangeEvent) => void", "required": false, "description": "変更時のコールバック"}
     ],
-    "example": "<Select\n  options={[\n    { value: 'jp', label: '日本' },\n    { value: 'us', label: 'アメリカ' },\n  ]}\n  placeholder=\"国を選択\"\n/>"
-  },
-  {
-    "name": "Card",
-    "category": "layout",
-    "description": "コンテンツをグループ化するカードコンポーネント",
-    "props": [
-      {"name": "padding", "type": "'none' | 'sm' | 'md' | 'lg'", "required": false, "description": "内側の余白。デフォルトは 'md'"},
-      {"name": "shadow", "type": "'none' | 'sm' | 'md' | 'lg'", "required": false, "description": "影の強さ。デフォルトは 'sm'"},
-      {"name": "radius", "type": "'none' | 'sm' | 'md' | 'lg'", "required": false, "description": "角丸。デフォルトは 'md'"}
-    ],
-    "example": "<Card padding=\"lg\" shadow=\"md\">\n  <h2>タイトル</h2>\n  <p>カードの内容</p>\n</Card>"
+    "example": "<Select\n  options={[\n    { value: 'tokyo', label: '東京都' },\n    { value: 'osaka', label: '大阪府' },\n  ]}\n  placeholder=\"都道府県を選択\"\n/>"
   },
   {
     "name": "Stack",
     "category": "layout",
-    "description": "子要素を垂直または水平に並べるレイアウトコンポーネント",
+    "description": "子要素を垂直に積み重ねるレイアウトコンポーネント",
     "props": [
-      {"name": "direction", "type": "'horizontal' | 'vertical'", "required": false, "description": "並べる方向。デフォルトは 'vertical'"},
-      {"name": "gap", "type": "number | string", "required": false, "description": "要素間のスペース。デフォルトは 4"},
-      {"name": "align", "type": "'start' | 'center' | 'end' | 'stretch'", "required": false, "description": "交差軸の揃え方"},
-      {"name": "justify", "type": "'start' | 'center' | 'end' | 'between' | 'around'", "required": false, "description": "主軸の揃え方"}
+      {"name": "spacing", "type": "Spacing", "required": false, "description": "要素間のスペース。デフォルトは 'md'"},
+      {"name": "as", "type": "ElementType", "required": false, "description": "レンダリングするHTML要素"}
     ],
-    "example": "<Stack direction=\"horizontal\" gap={4} align=\"center\">\n  <Avatar />\n  <Text>ユーザー名</Text>\n</Stack>"
+    "example": "<Stack spacing=\"lg\">\n  <Heading>タイトル</Heading>\n  <Text>説明文</Text>\n  <Button>アクション</Button>\n</Stack>"
   },
   {
-    "name": "Modal",
-    "category": "feedback",
-    "description": "モーダルダイアログ。オーバーレイ付きのポップアップ",
+    "name": "Stepper",
+    "category": "navigation",
+    "description": "ステップ進行状況を表示するコンポーネント",
     "props": [
-      {"name": "isOpen", "type": "boolean", "required": true, "description": "モーダルの表示状態"},
-      {"name": "onClose", "type": "() => void", "required": true, "description": "閉じるときのコールバック"},
-      {"name": "title", "type": "string", "required": false, "description": "モーダルのタイトル"},
-      {"name": "size", "type": "'sm' | 'md' | 'lg' | 'xl' | 'full'", "required": false, "description": "モーダルのサイズ"}
+      {"name": "current", "type": "number", "required": true, "description": "現在のステップ（0始まり）"},
+      {"name": "steps", "type": "{ label: string }[]", "required": true, "description": "ステップの配列"}
     ],
-    "example": "<Modal\n  isOpen={isOpen}\n  onClose={() => setIsOpen(false)}\n  title=\"確認\"\n>\n  <p>本当に削除しますか？</p>\n  <Button onClick={handleDelete}>削除</Button>\n</Modal>"
+    "example": "<Stepper\n  current={1}\n  steps={[\n    { label: '入力' },\n    { label: '確認' },\n    { label: '完了' },\n  ]}\n/>"
   },
   {
-    "name": "Toast",
-    "category": "feedback",
-    "description": "一時的な通知メッセージを表示するコンポーネント",
+    "name": "Text",
+    "category": "typography",
+    "description": "本文テキストコンポーネント",
     "props": [
-      {"name": "message", "type": "string", "required": true, "description": "表示するメッセージ"},
-      {"name": "status", "type": "'success' | 'warning' | 'error' | 'info'", "required": false, "description": "トーストの状態。デフォルトは 'info'"},
-      {"name": "duration", "type": "number", "required": false, "description": "表示時間（ミリ秒）。デフォルトは 3000"},
-      {"name": "position", "type": "'top' | 'bottom' | 'top-right' | 'bottom-right'", "required": false, "description": "表示位置"}
+      {"name": "as", "type": "'p' | 'span' | 'div'", "required": false, "description": "レンダリングするHTML要素"},
+      {"name": "size", "type": "'xs' | 'sm' | 'md' | 'lg'", "required": false, "description": "テキストサイズ"},
+      {"name": "color", "type": "TextColor", "required": false, "description": "テキストカラー"},
+      {"name": "bold", "type": "boolean", "required": false, "description": "太字にする"},
+      {"name": "align", "type": "'left' | 'center' | 'right'", "required": false, "description": "テキスト揃え"}
     ],
-    "example": "// useToast フックを使用\nconst toast = useToast();\n\ntoast({\n  message: '保存しました',\n  status: 'success',\n});"
+    "example": "<Text size=\"md\" color=\"main\">\n  本文テキスト\n</Text>"
   },
   {
-    "name": "Avatar",
-    "category": "display",
-    "description": "ユーザーのアバター画像を表示するコンポーネント",
+    "name": "TextArea",
+    "category": "form",
+    "description": "複数行テキスト入力",
     "props": [
-      {"name": "src", "type": "string", "required": false, "description": "画像のURL"},
-      {"name": "name", "type": "string", "required": false, "description": "ユーザー名（画像がない場合にイニシャルを表示）"},
-      {"name": "size", "type": "'xs' | 'sm' | 'md' | 'lg' | 'xl'", "required": false, "description": "アバターのサイズ"}
+      {"name": "placeholder", "type": "string", "required": false, "description": "プレースホルダー"},
+      {"name": "rows", "type": "number", "required": false, "description": "表示行数"},
+      {"name": "maxLength", "type": "number", "required": false, "description": "最大文字数"},
+      {"name": "error", "type": "boolean", "required": false, "description": "エラー状態"},
+      {"name": "disabled", "type": "boolean", "required": false, "description": "無効状態"},
+      {"name": "value", "type": "string", "required": false, "description": "入力値"},
+      {"name": "onChange", "type": "(e: ChangeEvent) => void", "required": false, "description": "変更時のコールバック"}
     ],
-    "example": "<Avatar\n  src=\"/user.jpg\"\n  name=\"田中太郎\"\n  size=\"md\"\n/>"
+    "example": "<Label>お問い合わせ内容</Label>\n<TextArea\n  placeholder=\"内容を入力してください\"\n  rows={5}\n  maxLength={500}\n/>"
   },
   {
-    "name": "Badge",
-    "category": "display",
-    "description": "ステータスやラベルを表示するバッジコンポーネント",
+    "name": "Toggle",
+    "category": "form",
+    "description": "トグルスイッチ。ON/OFFの切り替えに使用",
     "props": [
-      {"name": "variant", "type": "'solid' | 'outline' | 'subtle'", "required": false, "description": "バッジの見た目"},
-      {"name": "colorScheme", "type": "'gray' | 'blue' | 'green' | 'red' | 'yellow'", "required": false, "description": "色のスキーム"},
-      {"name": "size", "type": "'sm' | 'md' | 'lg'", "required": false, "description": "バッジのサイズ"}
+      {"name": "checked", "type": "boolean", "required": false, "description": "ON/OFF状態"},
+      {"name": "disabled", "type": "boolean", "required": false, "description": "無効状態"},
+      {"name": "onChange", "type": "(e: ChangeEvent) => void", "required": false, "description": "変更時のコールバック"}
     ],
-    "example": "<Badge colorScheme=\"green\" variant=\"subtle\">\n  完了\n</Badge>"
-  },
-  {
-    "name": "Spinner",
-    "category": "feedback",
-    "description": "ローディング状態を示すスピナーコンポーネント",
-    "props": [
-      {"name": "size", "type": "'xs' | 'sm' | 'md' | 'lg' | 'xl'", "required": false, "description": "スピナーのサイズ"},
-      {"name": "color", "type": "string", "required": false, "description": "スピナーの色"}
-    ],
-    "example": "<Spinner size=\"md\" />\n\n// ローディング状態の例\n{isLoading ? <Spinner /> : <Content />}"
+    "example": "<Flex alignItems=\"center\" gap=\"sm\">\n  <Toggle checked={isEnabled} onChange={handleToggle} />\n  <Text>通知を受け取る</Text>\n</Flex>"
   }
 ]

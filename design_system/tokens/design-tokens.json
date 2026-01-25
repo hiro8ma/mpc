@@ -1,90 +1,124 @@
 {
   "color": {
-    "primary": {
-      "50": "#eff6ff",
-      "100": "#dbeafe",
-      "200": "#bfdbfe",
-      "300": "#93c5fd",
-      "400": "#60a5fa",
-      "500": "#3b82f6",
-      "600": "#2563eb",
-      "700": "#1d4ed8",
-      "800": "#1e40af",
-      "900": "#1e3a8a"
+    "primitive": {
+      "blue": {
+        "900": "#203F94",
+        "800": "#3959CC",
+        "700": "#4A6FE3",
+        "600": "#5A85F5",
+        "500": "#6B9BFF",
+        "400": "#8AB2D9",
+        "300": "#A3C7E8",
+        "200": "#C8DDF2",
+        "100": "#E5F0FA"
+      },
+      "pink": {
+        "900": "#A32961",
+        "800": "#C43A7A",
+        "700": "#DA4B8B",
+        "600": "#EA5A9A",
+        "500": "#F56BAB",
+        "400": "#F88BBE",
+        "300": "#FAA7D1",
+        "200": "#FCC8E2",
+        "100": "#FEE8F2"
+      },
+      "red": {
+        "900": "#8C2B2B",
+        "800": "#B03838",
+        "700": "#C94545",
+        "600": "#E05252",
+        "500": "#F56060",
+        "400": "#F88080",
+        "300": "#FAA0A0",
+        "200": "#FCC8C8",
+        "100": "#FEE8E8"
+      },
+      "black": {
+        "900": "#16191F",
+        "800": "#16191F / 64%",
+        "700": "#16191F / 48%",
+        "600": "#16191F / 32%",
+        "500": "#16191F / 24%",
+        "400": "#16191F / 18%",
+        "300": "#16191F / 12%",
+        "200": "#16191F / 8%",
+        "100": "#16191F / 4%"
+      },
+      "white": "#FFFFFF"
     },
-    "secondary": {
-      "50": "#f8fafc",
-      "100": "#f1f5f9",
-      "200": "#e2e8f0",
-      "300": "#cbd5e1",
-      "400": "#94a3b8",
-      "500": "#64748b",
-      "600": "#475569",
-      "700": "#334155",
-      "800": "#1e293b",
-      "900": "#0f172a"
-    },
-    "success": "#22c55e",
-    "warning": "#f59e0b",
-    "error": "#ef4444",
-    "info": "#3b82f6"
+    "semantic": {
+      "text": {
+        "main": "black.900",
+        "sub": "black.700",
+        "disabled": "black.500",
+        "link": "blue.700",
+        "linkHover": "blue.800",
+        "alert": "red.700",
+        "white": "white"
+      },
+      "background": {
+        "primary": "white",
+        "secondary": "black.100",
+        "tertiary": "black.200",
+        "primaryHover": "black.100",
+        "accent": "blue.500",
+        "accentHover": "blue.600",
+        "alert": "red.100",
+        "alertHover": "red.200"
+      },
+      "border": {
+        "default": "black.300",
+        "strong": "black.500",
+        "focus": "blue.500",
+        "alert": "red.500"
+      },
+      "icon": {
+        "main": "black.900",
+        "sub": "black.600",
+        "disabled": "black.400",
+        "primary": "blue.600",
+        "alert": "red.600",
+        "white": "white"
+      }
+    }
   },
-  "spacing": {
-    "0": "0px",
-    "1": "4px",
-    "2": "8px",
-    "3": "12px",
-    "4": "16px",
-    "5": "20px",
-    "6": "24px",
-    "8": "32px",
-    "10": "40px",
-    "12": "48px",
-    "16": "64px",
-    "20": "80px",
-    "24": "96px"
-  },
-  "typography": {
-    "fontFamily": {
-      "sans": "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
-      "mono": "JetBrains Mono, Menlo, Monaco, monospace"
+  "size": {
+    "spacing": {
+      "xxs": { "value": 0.25, "px": "4px", "rem": "0.25rem", "description": "極小の値" },
+      "xs": { "value": 0.5, "px": "8px", "rem": "0.5rem", "description": "タグ内のpadding、アイコンとテキストのmargin" },
+      "sm": { "value": 0.75, "px": "12px", "rem": "0.75rem", "description": "調整用" },
+      "md": { "value": 1, "px": "16px", "rem": "1rem", "description": "ボタン内のpadding、近接させたいリスト要素" },
+      "lg": { "value": 1.5, "px": "24px", "rem": "1.5rem", "description": "コンテンツ間のmargin" },
+      "xl": { "value": 2.5, "px": "40px", "rem": "2.5rem", "description": "コンテンツ間のmargin" },
+      "xxl": { "value": 4, "px": "64px", "rem": "4rem", "description": "極大の値" }
     },
+    "radius": {
+      "none": { "value": "0px", "description": "角丸なし" },
+      "sm": { "value": "4px", "description": "小さい角丸" },
+      "md": { "value": "8px", "description": "標準の角丸" },
+      "lg": { "value": "16px", "description": "大きい角丸" },
+      "full": { "value": "9999px", "description": "完全な円形" }
+    }
+  },
+  "text": {
     "fontSize": {
-      "xs": "12px",
-      "sm": "14px",
-      "base": "16px",
-      "lg": "18px",
-      "xl": "20px",
-      "2xl": "24px",
-      "3xl": "30px",
-      "4xl": "36px"
+      "xs": { "value": "12px", "lineHeight": "1.5", "description": "注釈、キャプション" },
+      "sm": { "value": "14px", "lineHeight": "1.5", "description": "補足テキスト" },
+      "md": { "value": "16px", "lineHeight": "1.5", "description": "本文（デフォルト）" },
+      "lg": { "value": "18px", "lineHeight": "1.5", "description": "強調テキスト" }
+    },
+    "headingSize": {
+      "xs": { "value": "16px", "lineHeight": "1.4", "fontWeight": "bold" },
+      "sm": { "value": "18px", "lineHeight": "1.4", "fontWeight": "bold" },
+      "md": { "value": "22px", "lineHeight": "1.4", "fontWeight": "bold" },
+      "lg": { "value": "26px", "lineHeight": "1.3", "fontWeight": "bold" },
+      "xl": { "value": "32px", "lineHeight": "1.3", "fontWeight": "bold" }
     },
     "fontWeight": {
       "normal": "400",
       "medium": "500",
-      "semibold": "600",
       "bold": "700"
-    },
-    "lineHeight": {
-      "tight": "1.25",
-      "normal": "1.5",
-      "relaxed": "1.75"
     }
-  },
-  "shadow": {
-    "sm": "0 1px 2px 0 rgb(0 0 0 / 0.05)",
-    "base": "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
-    "md": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
-    "lg": "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
-    "xl": "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)"
-  },
-  "radius": {
-    "none": "0px",
-    "sm": "4px",
-    "base": "8px",
-    "md": "12px",
-    "lg": "16px",
-    "xl": "24px",
-    "full": "9999px"
   }
 }

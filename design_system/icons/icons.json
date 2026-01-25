@@ -1,98 +1,382 @@
 [
   {
-    "name": "IconPlus",
-    "category": "action",
-    "description": "追加・新規作成を示すプラスアイコン",
-    "keywords": ["add", "create", "new", "plus"],
-    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><line x1=\"12\" y1=\"5\" x2=\"12\" y2=\"19\"/><line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"/></svg>",
-    "usage": "import { IconPlus } from '@design-system/icons';\n\n<Button leftIcon={<IconPlus />}>追加</Button>"
+    "name": "AddressIcon",
+    "category": "basic",
+    "description": "住所・ロケーションを示すアイコン",
+    "keywords": ["address", "location", "place"]
   },
   {
-    "name": "IconMinus",
-    "category": "action",
-    "description": "削除・減少を示すマイナスアイコン",
-    "keywords": ["remove", "delete", "subtract", "minus"],
-    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"/></svg>",
-    "usage": "import { IconMinus } from '@design-system/icons';\n\n<IconMinus size={20} />"
+    "name": "AccountIcon",
+    "category": "basic",
+    "description": "アカウント・ユーザーを示すアイコン",
+    "keywords": ["account", "user", "profile"]
   },
   {
-    "name": "IconCheck",
-    "category": "status",
-    "description": "完了・成功を示すチェックマークアイコン",
-    "keywords": ["done", "complete", "success", "check", "tick"],
-    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"20 6 9 17 4 12\"/></svg>",
-    "usage": "import { IconCheck } from '@design-system/icons';\n\n<Badge leftIcon={<IconCheck />}>完了</Badge>"
+    "name": "AccountSettingIcon",
+    "category": "basic",
+    "description": "アカウント設定を示すアイコン",
+    "keywords": ["account", "setting", "config"]
   },
   {
-    "name": "IconX",
-    "category": "action",
-    "description": "閉じる・キャンセルを示すXアイコン",
-    "keywords": ["close", "cancel", "remove", "x"],
-    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><line x1=\"18\" y1=\"6\" x2=\"6\" y2=\"18\"/><line x1=\"6\" y1=\"6\" x2=\"18\" y2=\"18\"/></svg>",
-    "usage": "import { IconX } from '@design-system/icons';\n\n<button onClick={onClose}><IconX /></button>"
+    "name": "AlertIcon",
+    "category": "basic",
+    "description": "一般的な警告アイコン（三角形）",
+    "keywords": ["alert", "warning", "caution"],
+    "svg": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M12 2L2 22h20L12 2z\"/><line x1=\"12\" y1=\"9\" x2=\"12\" y2=\"13\"/><circle cx=\"12\" cy=\"17\" r=\"1\"/></svg>",
+    "usage": "<AlertIcon />\n\n// 緊急度が高い警告に使用"
   },
   {
-    "name": "IconSearch",
+    "name": "AlertAIcon",
+    "category": "basic",
+    "description": "警告アイコン バリエーション1（三角形、AlertIconと同じ）",
+    "keywords": ["alert", "warning", "caution", "triangle"]
+  },
+  {
+    "name": "AlertBIcon",
+    "category": "basic",
+    "description": "警告アイコン バリエーション2（円形、より穏やかな警告・情報）",
+    "keywords": ["alert", "warning", "info", "circle"],
+    "svg": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><line x1=\"12\" y1=\"8\" x2=\"12\" y2=\"12\"/><circle cx=\"12\" cy=\"16\" r=\"1\"/></svg>",
+    "usage": "<AlertBIcon />\n\n// 情報的な注意に使用"
+  },
+  {
+    "name": "CheckAIcon",
+    "category": "check",
+    "description": "チェックマークアイコン バリエーションA",
+    "keywords": ["check", "done", "complete", "success"]
+  },
+  {
+    "name": "CheckBIcon",
+    "category": "check",
+    "description": "チェックマークアイコン バリエーションB",
+    "keywords": ["check", "done", "complete", "success"]
+  },
+  {
+    "name": "CheckBFillIcon",
+    "category": "check",
+    "description": "塗りつぶしチェックマークアイコン",
+    "keywords": ["check", "done", "complete", "success", "fill"]
+  },
+  {
+    "name": "CheckboxOffOutlineIcon",
+    "category": "check",
+    "description": "未チェック状態のチェックボックスアイコン",
+    "keywords": ["checkbox", "unchecked", "off", "outline"]
+  },
+  {
+    "name": "CheckboxOnOutlineIcon",
+    "category": "check",
+    "description": "チェック状態のチェックボックスアイコン",
+    "keywords": ["checkbox", "checked", "on", "outline"]
+  },
+  {
+    "name": "CircleFillIcon",
+    "category": "check",
+    "description": "塗りつぶし円アイコン",
+    "keywords": ["circle", "fill", "dot"]
+  },
+  {
+    "name": "CircleOutlineIcon",
+    "category": "check",
+    "description": "アウトライン円アイコン",
+    "keywords": ["circle", "outline", "ring"]
+  },
+  {
+    "name": "CloseAIcon",
+    "category": "check",
+    "description": "閉じるアイコン バリエーションA",
+    "keywords": ["close", "x", "cancel", "remove"]
+  },
+  {
+    "name": "CloseBIcon",
+    "category": "check",
+    "description": "閉じるアイコン バリエーションB",
+    "keywords": ["close", "x", "cancel", "remove"]
+  },
+  {
+    "name": "ArrowADownIcon",
+    "category": "arrow",
+    "description": "下矢印アイコン タイプA",
+    "keywords": ["arrow", "down", "direction"]
+  },
+  {
+    "name": "ArrowALeftIcon",
+    "category": "arrow",
+    "description": "左矢印アイコン タイプA",
+    "keywords": ["arrow", "left", "direction", "back"]
+  },
+  {
+    "name": "ArrowARightIcon",
+    "category": "arrow",
+    "description": "右矢印アイコン タイプA",
+    "keywords": ["arrow", "right", "direction", "next"]
+  },
+  {
+    "name": "ArrowAUpIcon",
+    "category": "arrow",
+    "description": "上矢印アイコン タイプA",
+    "keywords": ["arrow", "up", "direction"]
+  },
+  {
+    "name": "ArrowBDownIcon",
+    "category": "arrow",
+    "description": "下矢印アイコン タイプB",
+    "keywords": ["arrow", "down", "direction"]
+  },
+  {
+    "name": "ArrowBLeftIcon",
+    "category": "arrow",
+    "description": "左矢印アイコン タイプB",
+    "keywords": ["arrow", "left", "direction", "back"]
+  },
+  {
+    "name": "ArrowBRightIcon",
+    "category": "arrow",
+    "description": "右矢印アイコン タイプB",
+    "keywords": ["arrow", "right", "direction", "next"],
+    "svg": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><polyline points=\"9 18 15 12 9 6\"/></svg>",
+    "usage": "<Button suffixIcon={<ArrowBRightIcon />}>\n  次へ\n</Button>"
+  },
+  {
+    "name": "ArrowBUpIcon",
+    "category": "arrow",
+    "description": "上矢印アイコン タイプB",
+    "keywords": ["arrow", "up", "direction"]
+  },
+  {
+    "name": "BoyIcon",
+    "category": "person",
+    "description": "男の子アイコン",
+    "keywords": ["boy", "child", "kid", "male"]
+  },
+  {
+    "name": "GirlIcon",
+    "category": "person",
+    "description": "女の子アイコン",
+    "keywords": ["girl", "child", "kid", "female"]
+  },
+  {
+    "name": "ManIcon",
+    "category": "person",
+    "description": "成人男性アイコン",
+    "keywords": ["man", "adult", "male"]
+  },
+  {
+    "name": "WomanIcon",
+    "category": "person",
+    "description": "成人女性アイコン",
+    "keywords": ["woman", "adult", "female"]
+  },
+  {
+    "name": "OldManIcon",
+    "category": "person",
+    "description": "高齢男性アイコン",
+    "keywords": ["old", "man", "elderly", "senior", "male"]
+  },
+  {
+    "name": "OldWomanIcon",
+    "category": "person",
+    "description": "高齢女性アイコン",
+    "keywords": ["old", "woman", "elderly", "senior", "female"]
+  },
+  {
+    "name": "DoctorIcon",
+    "category": "person",
+    "description": "医師アイコン",
+    "keywords": ["doctor", "physician", "medical"]
+  },
+  {
+    "name": "NurseIcon",
+    "category": "person",
+    "description": "看護師アイコン",
+    "keywords": ["nurse", "medical", "healthcare"]
+  },
+  {
+    "name": "FemaleHumanIcon",
+    "category": "person",
+    "description": "女性の人物アイコン",
+    "keywords": ["female", "human", "person", "woman"]
+  },
+  {
+    "name": "FemaleSymbolIcon",
+    "category": "person",
+    "description": "女性シンボルアイコン",
+    "keywords": ["female", "symbol", "gender"]
+  },
+  {
+    "name": "MaleHumanIcon",
+    "category": "person",
+    "description": "男性の人物アイコン",
+    "keywords": ["male", "human", "person", "man"]
+  },
+  {
+    "name": "MaleSymbolIcon",
+    "category": "person",
+    "description": "男性シンボルアイコン",
+    "keywords": ["male", "symbol", "gender"]
+  },
+  {
+    "name": "MedicalSymbolOutlineIcon",
+    "category": "medical",
+    "description": "医療シンボルアイコン（アウトライン）",
+    "keywords": ["medical", "symbol", "healthcare", "outline"]
+  },
+  {
+    "name": "MedicalSymbolFillIcon",
+    "category": "medical",
+    "description": "医療シンボルアイコン（塗りつぶし）",
+    "keywords": ["medical", "symbol", "healthcare", "fill"]
+  },
+  {
+    "name": "MedicalHeartIcon",
+    "category": "medical",
+    "description": "医療ハートアイコン",
+    "keywords": ["medical", "heart", "healthcare", "cardio"]
+  },
+  {
+    "name": "MedicineTabletIcon",
+    "category": "medical",
+    "description": "錠剤アイコン",
+    "keywords": ["medicine", "tablet", "pill", "drug"]
+  },
+  {
+    "name": "MedicineSyrupIcon",
+    "category": "medical",
+    "description": "シロップ薬アイコン",
+    "keywords": ["medicine", "syrup", "liquid", "drug"]
+  },
+  {
+    "name": "MedicinePowderIcon",
+    "category": "medical",
+    "description": "粉薬アイコン",
+    "keywords": ["medicine", "powder", "drug"]
+  },
+  {
+    "name": "CapsuleIcon",
+    "category": "medical",
+    "description": "カプセル薬アイコン",
+    "keywords": ["capsule", "medicine", "pill", "drug"]
+  },
+  {
+    "name": "CapsuleTabletIcon",
+    "category": "medical",
+    "description": "カプセル錠剤アイコン",
+    "keywords": ["capsule", "tablet", "medicine", "drug"]
+  },
+  {
+    "name": "InjectionIcon",
+    "category": "medical",
+    "description": "注射アイコン",
+    "keywords": ["injection", "syringe", "vaccine", "medical"]
+  },
+  {
+    "name": "StethoscopeIcon",
+    "category": "medical",
+    "description": "聴診器アイコン",
+    "keywords": ["stethoscope", "doctor", "medical", "healthcare"]
+  },
+  {
+    "name": "FirstAidBoxIcon",
+    "category": "medical",
+    "description": "救急箱アイコン",
+    "keywords": ["first aid", "box", "medical", "emergency"]
+  },
+  {
+    "name": "MaskIcon",
+    "category": "medical",
+    "description": "マスクアイコン",
+    "keywords": ["mask", "medical", "protection", "healthcare"]
+  },
+  {
+    "name": "AmbulanceIcon",
+    "category": "medical",
+    "description": "救急車アイコン",
+    "keywords": ["ambulance", "emergency", "medical", "vehicle"]
+  },
+  {
+    "name": "SearchIcon",
     "category": "action",
-    "description": "検索を示す虫眼鏡アイコン",
+    "description": "検索アイコン",
     "keywords": ["search", "find", "lookup", "magnifier"],
-    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><line x1=\"21\" y1=\"21\" x2=\"16.65\" y2=\"16.65\"/></svg>",
-    "usage": "import { IconSearch } from '@design-system/icons';\n\n<Input leftIcon={<IconSearch />} placeholder=\"検索...\" />"
+    "svg": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><line x1=\"21\" y1=\"21\" x2=\"16.65\" y2=\"16.65\"/></svg>",
+    "usage": "<Input leftIcon={<SearchIcon />} placeholder=\"検索...\" />"
   },
   {
-    "name": "IconChevronRight",
-    "category": "navigation",
-    "description": "右方向を示す矢印アイコン",
-    "keywords": ["arrow", "right", "next", "forward", "chevron"],
-    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"9 18 15 12 9 6\"/></svg>",
-    "usage": "import { IconChevronRight } from '@design-system/icons';\n\n<Button rightIcon={<IconChevronRight />}>次へ</Button>"
-  },
-  {
-    "name": "IconChevronLeft",
-    "category": "navigation",
-    "description": "左方向を示す矢印アイコン",
-    "keywords": ["arrow", "left", "back", "previous", "chevron"],
-    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"15 18 9 12 15 6\"/></svg>",
-    "usage": "import { IconChevronLeft } from '@design-system/icons';\n\n<Button leftIcon={<IconChevronLeft />}>戻る</Button>"
-  },
-  {
-    "name": "IconMenu",
-    "category": "navigation",
-    "description": "メニューを示すハンバーガーアイコン",
-    "keywords": ["menu", "hamburger", "navigation", "bars"],
-    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><line x1=\"3\" y1=\"12\" x2=\"21\" y2=\"12\"/><line x1=\"3\" y1=\"6\" x2=\"21\" y2=\"6\"/><line x1=\"3\" y1=\"18\" x2=\"21\" y2=\"18\"/></svg>",
-    "usage": "import { IconMenu } from '@design-system/icons';\n\n<button onClick={toggleMenu}><IconMenu /></button>"
-  },
-  {
-    "name": "IconUser",
-    "category": "display",
-    "description": "ユーザー・アカウントを示すアイコン",
-    "keywords": ["user", "account", "profile", "person"],
-    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2\"/><circle cx=\"12\" cy=\"7\" r=\"4\"/></svg>",
-    "usage": "import { IconUser } from '@design-system/icons';\n\n<Avatar icon={<IconUser />} />"
-  },
-  {
-    "name": "IconSettings",
+    "name": "SettingIcon",
     "category": "action",
-    "description": "設定を示す歯車アイコン",
-    "keywords": ["settings", "config", "gear", "preferences"],
-    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z\"/></svg>",
-    "usage": "import { IconSettings } from '@design-system/icons';\n\n<IconButton icon={<IconSettings />} aria-label=\"設定\" />"
+    "description": "設定アイコン",
+    "keywords": ["setting", "config", "gear", "preferences"]
   },
   {
-    "name": "IconAlertCircle",
-    "category": "status",
-    "description": "警告・注意を示すアイコン",
-    "keywords": ["alert", "warning", "caution", "attention"],
-    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><line x1=\"12\" y1=\"8\" x2=\"12\" y2=\"12\"/><line x1=\"12\" y1=\"16\" x2=\"12.01\" y2=\"16\"/></svg>",
-    "usage": "import { IconAlertCircle } from '@design-system/icons';\n\n<Toast status=\"warning\" icon={<IconAlertCircle />} />"
+    "name": "MenuIcon",
+    "category": "action",
+    "description": "メニューアイコン",
+    "keywords": ["menu", "hamburger", "navigation"]
   },
   {
-    "name": "IconInfo",
-    "category": "status",
-    "description": "情報を示すアイコン",
-    "keywords": ["info", "information", "help", "about"],
-    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><line x1=\"12\" y1=\"16\" x2=\"12\" y2=\"12\"/><line x1=\"12\" y1=\"8\" x2=\"12.01\" y2=\"8\"/></svg>",
-    "usage": "import { IconInfo } from '@design-system/icons';\n\n<Tooltip icon={<IconInfo />}>詳細情報</Tooltip>"
+    "name": "PlusIcon",
+    "category": "action",
+    "description": "プラスアイコン",
+    "keywords": ["plus", "add", "create", "new"]
+  },
+  {
+    "name": "MinusIcon",
+    "category": "action",
+    "description": "マイナスアイコン",
+    "keywords": ["minus", "remove", "subtract"]
+  },
+  {
+    "name": "EditIcon",
+    "category": "action",
+    "description": "編集アイコン",
+    "keywords": ["edit", "pencil", "modify", "write"]
+  },
+  {
+    "name": "TrashIcon",
+    "category": "action",
+    "description": "削除アイコン",
+    "keywords": ["trash", "delete", "remove", "bin"]
+  },
+  {
+    "name": "CalendarIcon",
+    "category": "action",
+    "description": "カレンダーアイコン",
+    "keywords": ["calendar", "date", "schedule"]
+  },
+  {
+    "name": "CameraIcon",
+    "category": "action",
+    "description": "カメラアイコン",
+    "keywords": ["camera", "photo", "image"]
+  },
+  {
+    "name": "PhoneIcon",
+    "category": "action",
+    "description": "電話アイコン",
+    "keywords": ["phone", "call", "telephone"]
+  },
+  {
+    "name": "MailIcon",
+    "category": "action",
+    "description": "メールアイコン",
+    "keywords": ["mail", "email", "message"]
+  },
+  {
+    "name": "NotificationIcon",
+    "category": "action",
+    "description": "通知アイコン",
+    "keywords": ["notification", "bell", "alert"]
+  },
+  {
+    "name": "LockIcon",
+    "category": "action",
+    "description": "ロックアイコン",
+    "keywords": ["lock", "security", "private"]
+  },
+  {
+    "name": "UnlockIcon",
+    "category": "action",
+    "description": "アンロックアイコン",
+    "keywords": ["unlock", "security", "open"]
   }
 ]
